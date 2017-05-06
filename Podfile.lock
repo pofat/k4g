@@ -1,0 +1,12 @@
+PODS:
+  - FrostedSidebar (1.0.0)
+
+DEPENDENCIES:
+  - FrostedSidebar
+
+SPEC CHECKSUMS:
+  FrostedSidebar: f86c6843cabd5d456f9234afb6eea22a7512532f
+
+PODFILE CHECKSUM: 96e16b6421771325593858cab2b20f8634cf71d0
+
+COCOAPODS: 1.2.0
