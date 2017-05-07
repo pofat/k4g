@@ -19,6 +19,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var loginBtn: UIButton!
     
+    // make status bar text white
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +35,8 @@ class ViewController: UIViewController {
             ], colors: nil, selectionStyle: .none)
         
         sidebar.actionForIndex = [
-            0: {self.sidebar.dismissAnimated(true, completion: { finished in print("index 0 pressed") })},
+            // logout
+            0: {self.sidebar.dismissAnimated(true, completion: { [unowned self] finished in self.logout() })},
             1: {self.sidebar.dismissAnimated(true, completion: { finished in print("index 1 pressed") })},
             2: {self.sidebar.dismissAnimated(true, completion: { finished in print("index 2 pressed") })}
         ]
@@ -63,6 +69,19 @@ class ViewController: UIViewController {
             self.loginBtn.isEnabled = false
             self.isLoggingIn = false
         }
+    }
+    
+    // logout
+    func logout() {
+        if Token.current != nil {
+            Token.current = nil
+            avatar.image = UIImage(named: "loggedOut")
+            loginBtn.setTitle("Login", for: .normal)
+            loginBtn.isEnabled = true
+        } else {
+            SVProgressHUD.showInfo(withStatus: "Already logged out")
+        }
+        
     }
 
 }
