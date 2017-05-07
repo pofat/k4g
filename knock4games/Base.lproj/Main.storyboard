@@ -49,20 +49,37 @@
                                     <action selector="onLogin" destination="BYZ-38-t0r" eventType="touchUpInside" id="VMK-n2-Zom"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Members:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIF-5B-j9K">
+                                <rect key="frame" x="148.5" y="231" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XSP-av-uJp">
+                                <rect key="frame" x="20" y="260" width="339" height="387"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.30588235294117649" green="0.29803921568627451" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="FNc-iW-Gid" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="39" id="0Nh-wS-X3h"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XSP-av-uJp" secondAttribute="bottom" constant="20" id="29a-rM-1nH"/>
                             <constraint firstItem="IYb-5t-iE1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="4" id="EDN-Fb-VZe"/>
+                            <constraint firstItem="QIF-5B-j9K" firstAttribute="top" secondItem="yDb-xJ-9Ky" secondAttribute="bottom" constant="84" id="HDb-bO-Qlz"/>
                             <constraint firstItem="IYb-5t-iE1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="HL2-32-tDx"/>
+                            <constraint firstItem="XSP-av-uJp" firstAttribute="top" secondItem="QIF-5B-j9K" secondAttribute="bottom" constant="8" id="ax1-ir-fTo"/>
                             <constraint firstItem="yDb-xJ-9Ky" firstAttribute="top" secondItem="FNc-iW-Gid" secondAttribute="bottom" constant="8" id="hJx-3b-XF8"/>
                             <constraint firstItem="yDb-xJ-9Ky" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kmu-pm-cX5"/>
+                            <constraint firstItem="QIF-5B-j9K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l6H-7p-kGT"/>
                             <constraint firstItem="FNc-iW-Gid" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sjM-v8-wjg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XSP-av-uJp" secondAttribute="trailing" id="tKP-R9-6qj"/>
+                            <constraint firstItem="XSP-av-uJp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="zdG-aO-9TI"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="avatar" destination="FNc-iW-Gid" id="tri-Ty-TnA"/>
                         <outlet property="loginBtn" destination="yDb-xJ-9Ky" id="eTu-DE-TNS"/>
+                        <outlet property="tableView" destination="XSP-av-uJp" id="Fi4-Yf-s01"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
