@@ -11,26 +11,52 @@ import XCTest
 
 class knock4gamesTests: XCTestCase {
     
+    var sender: TestRequestSender!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        sender = TestRequestSender()
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
+        sender = nil
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testTokenRequest() {
+        let tokenReq = TokenRequest(name: "ken", pwd: "hello")
+        XCTAssertEqual(tokenReq.method, .post)
+        
+        sender.send(tokenReq) { token in
+            XCTAssertNotNil(token)
+            XCTAssertEqual(token!.name, "ken")
+            XCTAssertEqual(token!.iat, Date(timeIntervalSince1970: 1482748545))
+            XCTAssertEqual(token!.exp, Date(timeIntervalSince1970: 1482766545))
+            XCTAssertEqual(token!.token, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia2VuIiwiaWF0IjoxNDgyNzQ4NTQ1LCJleHAiOjE0ODI3NjY1NDV9.BxQ5Ex7hhzXTMhb3EPl-9MdjFVy1ZCKLrGb19beaFns")
+        }
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+}
+
+struct TestRequestSender: RequestSender {
+    func send<T : Request>(_ r: T, handler: @escaping (T.Response?) -> Void) {
+        switch r.path {
+        case "":
+            guard let fileURL = Bundle(for: knock4gamesTests.self).url(forResource: "test_token", withExtension: "json") else {
+                fatalError("File not accessible")
+            }
+            guard let data = try? Data(contentsOf: fileURL) else {
+                fatalError("File read failed")
+            }
+            
+            handler(T.Response.parse(data: data))
+        default:
+            fatalError("Unkown path")
         }
     }
     
+    func send<T>(arrayReq r: T, handler: @escaping ([T.Response]?) -> Void) where T : Request {
+        // do nothing
+    }
 }

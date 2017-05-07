@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  knock4games
 //
-//  Created by Pofat Diuit on 2017/5/1.
+//  Created by Pofat Tseng on 2017/5/1.
 //  Copyright © 2017年 Pofat. All rights reserved.
 //
 

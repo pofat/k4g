@@ -1,0 +1,8 @@
+{
+    "token": {
+        "name": "ken",
+        "iat": 1482748545,
+        "exp": 1482766545,
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia2VuIiwiaWF0IjoxNDgyNzQ4NTQ1LCJleHAiOjE0ODI3NjY1NDV9.BxQ5Ex7hhzXTMhb3EPl-9MdjFVy1ZCKLrGb19beaFns"
+    }
+}

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9A273B97CF5C9214B211FDF9 /* Pods_knock4games.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DBA952E9CB30A1D5A6598F /* Pods_knock4games.framework */; };
 		CAC5E73353420CCB4DEA2E02 /* Pods_knock4gamesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 371B3C385B2467F2CEA69399 /* Pods_knock4gamesTests.framework */; };
+		FA3B8ED01EBEF90F000B97F9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B8ECF1EBEF90F000B97F9 /* Request.swift */; };
+		FA3B8ED21EBEFA36000B97F9 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B8ED11EBEFA36000B97F9 /* Token.swift */; };
+		FA3B8ED41EBF173E000B97F9 /* test_token.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3B8ED31EBF173E000B97F9 /* test_token.json */; };
 		FAAC6CD21EB764B400FA4C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC6CD11EB764B400FA4C86 /* AppDelegate.swift */; };
 		FAAC6CD41EB764B400FA4C86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC6CD31EB764B400FA4C86 /* ViewController.swift */; };
 		FAAC6CD71EB764B400FA4C86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAC6CD51EB764B400FA4C86 /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 		6012822E345917FCAB5591D9 /* Pods-knock4games.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-knock4games.debug.xcconfig"; path = "Pods/Target Support Files/Pods-knock4games/Pods-knock4games.debug.xcconfig"; sourceTree = "<group>"; };
 		A8083E94B1E43FCCC6C5A0F1 /* Pods-knock4games.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-knock4games.release.xcconfig"; path = "Pods/Target Support Files/Pods-knock4games/Pods-knock4games.release.xcconfig"; sourceTree = "<group>"; };
 		EDD44268B7A44184ED50ABD0 /* Pods-knock4gamesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-knock4gamesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-knock4gamesTests/Pods-knock4gamesTests.release.xcconfig"; sourceTree = "<group>"; };
+		FA3B8ECF1EBEF90F000B97F9 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		FA3B8ED11EBEFA36000B97F9 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		FA3B8ED31EBF173E000B97F9 /* test_token.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_token.json; sourceTree = "<group>"; };
 		FAAC6CCE1EB764B400FA4C86 /* knock4games.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = knock4games.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAC6CD11EB764B400FA4C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAC6CD31EB764B400FA4C86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +92,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA3B8ECE1EBEF8B1000B97F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA3B8ECF1EBEF90F000B97F9 /* Request.swift */,
+				FA3B8ED11EBEFA36000B97F9 /* Token.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		FAAC6CC51EB764B300FA4C86 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +124,7 @@
 		FAAC6CD01EB764B400FA4C86 /* knock4games */ = {
 			isa = PBXGroup;
 			children = (
+				FA3B8ECE1EBEF8B1000B97F9 /* Model */,
 				FAAC6CD11EB764B400FA4C86 /* AppDelegate.swift */,
 				FAAC6CD31EB764B400FA4C86 /* ViewController.swift */,
 				FAAC6CD51EB764B400FA4C86 /* Main.storyboard */,
@@ -123,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				FAAC6CE61EB764B400FA4C86 /* knock4gamesTests.swift */,
+				FA3B8ED31EBF173E000B97F9 /* test_token.json */,
 				FAAC6CE81EB764B400FA4C86 /* Info.plist */,
 			);
 			path = knock4gamesTests;
@@ -227,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3B8ED41EBF173E000B97F9 /* test_token.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +349,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAAC6CD41EB764B400FA4C86 /* ViewController.swift in Sources */,
+				FA3B8ED01EBEF90F000B97F9 /* Request.swift in Sources */,
 				FAAC6CD21EB764B400FA4C86 /* AppDelegate.swift in Sources */,
+				FA3B8ED21EBEFA36000B97F9 /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +561,7 @@
 				FAAC6CED1EB764B400FA4C86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAAC6CEE1EB764B400FA4C86 /* Build configuration list for PBXNativeTarget "knock4gamesTests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +570,7 @@
 				FAAC6CF01EB764B400FA4C86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
