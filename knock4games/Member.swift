@@ -43,12 +43,25 @@ extension Member: Decodable {
 struct MemberListRequest: Request {
     let authToken: String
     
-    // Request protocl
+    // Request protocol
     var path: String { return "/member" }
     var extraHeader: [(key: String, value: String)]? {
         return [("Authorization", authToken)]
     }
     let method: HTTPMethod = .get
+    
+    typealias Response = Member
+}
+
+struct AddMemberReqeust: Request {
+    let authToken: String
+    
+    // Request protocol
+    var path: String { return "/member" }
+    var extraHeader: [(key: String, value: String)]? {
+        return [("Authorization", authToken)]
+    }
+    let method: HTTPMethod = .post
     
     typealias Response = Member
 }

@@ -63,6 +63,7 @@ protocol RequestSender {
     var host: String { get }
     func send<T: Request>(_ r: T, handler: @escaping (T.Response?) -> Void )
     func send<T: Request>(arrayReq r: T, handler: @escaping ([T.Response]?) -> Void)
+    func send<T: Request>(operationReq r: T, handler: @escaping(Bool) -> Void)
 }
 
 extension RequestSender {
@@ -106,6 +107,20 @@ struct URLSessionRequestSender: RequestSender {
                 }
             }
         }
+        task.resume()
+    }
+    
+    func send<T: Request>(operationReq r: T, handler: @escaping(Bool) -> Void) {
+        
+        let task = URLSession.shared.dataTask(with: requestBuilder(r)) {
+            data, res, error in
+            if error == nil, let response = res as? HTTPURLResponse, response.statusCode == 200 {
+                DispatchQueue.main.async { handler(true) }
+            } else {
+                DispatchQueue.main.async { handler(false) }
+            }
+        }
+        
         task.resume()
     }
     

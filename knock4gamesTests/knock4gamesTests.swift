@@ -60,6 +60,18 @@ class knock4gamesTests: XCTestCase {
             }
         }
     }
+    
+    func testAddMemberRequest() {
+        let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia2VuIiwiaWF0IjoxNDgyNzQ4NTQ1LCJleHAiOjE0ODI3NjY1NDV9.BxQ5Ex7hhzXTMhb3EPl-9MdjFVy1ZCKLrGb19beaFns"
+        
+        let addMemberReq = AddMemberReqeust(authToken: token)
+        
+        // assert request
+        XCTAssertNotNil(addMemberReq.extraHeader)
+        XCTAssertEqual(addMemberReq.extraHeader!.count, 1)
+        XCTAssertEqual(addMemberReq.extraHeader![0].key, "Authorization")
+        XCTAssertEqual(addMemberReq.extraHeader![0].value, token)
+    }
 }
 
 struct TestRequestSender: RequestSender {
@@ -94,6 +106,10 @@ struct TestRequestSender: RequestSender {
             fatalError("Unkonw path")
         }
         
+    }
+    
+    func send<T>(operationReq r: T, handler: @escaping (Bool) -> Void) where T : Request {
+        // do nothing
     }
 }
 
