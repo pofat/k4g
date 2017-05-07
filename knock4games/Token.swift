@@ -9,6 +9,9 @@
 import Foundation
 
 struct Token {
+    
+    static var current: Token?
+    
     let name: String
     let token: String
     let iat: Date
