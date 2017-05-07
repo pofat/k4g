@@ -41,7 +41,7 @@ class ViewController: UIViewController {
             // logout
             0: {self.sidebar.dismissAnimated(true, completion: { [unowned self] finished in self.logout() })},
             1: {self.sidebar.dismissAnimated(true, completion: { [unowned self] finished in self.listMembers() })},
-            2: {self.sidebar.dismissAnimated(true, completion: { finished in print("index 2 pressed") })}
+            2: {self.sidebar.dismissAnimated(true, completion: { [unowned self] finished in self.addMember() })}
         ]
         
         // tableview
@@ -131,6 +131,33 @@ extension ViewController {
         
     }
     
+    // click add member with random combination of alphabets
+    func addMember() {
+        guard Token.current != nil else {
+            SVProgressHUD.showError(withStatus: "Must login to add new member")
+            return
+        }
+        
+        let newName = String.random(length: 5)
+        
+        // check if token is still valid
+        if Token.current!.exp > Date() {
+            reqeustToAddMember(withName: newName)
+        } else {
+            // refresh token if expired
+            urlRequestSender.send(TokenRequest(name:"ken", pwd: "hello")) { [unowned self] token in
+                guard let token = token else {
+                    SVProgressHUD.showError(withStatus: "Refresh token failed")
+                    return
+                }
+                
+                Token.current = token
+                self.reqeustToAddMember(withName: newName)
+            }
+        }
+    }
+    
+    
     
     func requestMembers() {
         urlRequestSender.send(arrayReq: MemberListRequest(authToken: Token.current!.token)) { [unowned self] memberlist in
@@ -141,6 +168,19 @@ extension ViewController {
             
             self.members = memberlist
             self.tableView.reloadData()
+        }
+    }
+    
+    func reqeustToAddMember(withName name: String) {
+        urlRequestSender.send(operationReq: AddMemberReqeust(authToken: Token.current!.token, name: name)) { [unowned self] success in
+            guard success == true else {
+                SVProgressHUD.showError(withStatus: "Failed to add new member")
+                return
+            }
+            
+            SVProgressHUD.showInfo(withStatus: "Member \"\(name)\" added")
+            self.requestMembers()
+            
         }
     }
 }

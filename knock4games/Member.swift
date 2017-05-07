@@ -55,9 +55,13 @@ struct MemberListRequest: Request {
 
 struct AddMemberReqeust: Request {
     let authToken: String
+    let name: String
     
     // Request protocol
     var path: String { return "/member" }
+    var parameter: [String : Any]? {
+        return ["name": name]
+    }
     var extraHeader: [(key: String, value: String)]? {
         return [("Authorization", authToken)]
     }
