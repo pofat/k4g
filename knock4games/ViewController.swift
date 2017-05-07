@@ -48,6 +48,12 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.allowsSelection = false
         tableView.tableFooterView = UIView() // cancel extra separators
+        
+        // setup button 
+        loginBtn.layer.cornerRadius = 5.0
+        loginBtn.clipsToBounds = true
+        loginBtn.layer.borderColor = UIColor.white.cgColor
+        loginBtn.layer.borderWidth = 1.0
     }
     
     // show sidebar menu
