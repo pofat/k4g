@@ -12,6 +12,8 @@
 		FA3B8ED01EBEF90F000B97F9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B8ECF1EBEF90F000B97F9 /* Request.swift */; };
 		FA3B8ED21EBEFA36000B97F9 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B8ED11EBEFA36000B97F9 /* Token.swift */; };
 		FA3B8ED41EBF173E000B97F9 /* test_token.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3B8ED31EBF173E000B97F9 /* test_token.json */; };
+		FA3B8EDA1EBF2E27000B97F9 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B8ED91EBF2E27000B97F9 /* Member.swift */; };
+		FA3B8EDC1EBF310B000B97F9 /* test_memberlist.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3B8EDB1EBF310B000B97F9 /* test_memberlist.json */; };
 		FAAC6CD21EB764B400FA4C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC6CD11EB764B400FA4C86 /* AppDelegate.swift */; };
 		FAAC6CD41EB764B400FA4C86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC6CD31EB764B400FA4C86 /* ViewController.swift */; };
 		FAAC6CD71EB764B400FA4C86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAC6CD51EB764B400FA4C86 /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 		FA3B8ECF1EBEF90F000B97F9 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		FA3B8ED11EBEFA36000B97F9 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		FA3B8ED31EBF173E000B97F9 /* test_token.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_token.json; sourceTree = "<group>"; };
+		FA3B8ED91EBF2E27000B97F9 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		FA3B8EDB1EBF310B000B97F9 /* test_memberlist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_memberlist.json; sourceTree = "<group>"; };
 		FAAC6CCE1EB764B400FA4C86 /* knock4games.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = knock4games.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAC6CD11EB764B400FA4C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAC6CD31EB764B400FA4C86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			children = (
 				FA3B8ECF1EBEF90F000B97F9 /* Request.swift */,
 				FA3B8ED11EBEFA36000B97F9 /* Token.swift */,
+				FA3B8ED91EBF2E27000B97F9 /* Member.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			children = (
 				FAAC6CE61EB764B400FA4C86 /* knock4gamesTests.swift */,
 				FA3B8ED31EBF173E000B97F9 /* test_token.json */,
+				FA3B8EDB1EBF310B000B97F9 /* test_memberlist.json */,
 				FAAC6CE81EB764B400FA4C86 /* Info.plist */,
 			);
 			path = knock4gamesTests;
@@ -245,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3B8ED41EBF173E000B97F9 /* test_token.json in Resources */,
+				FA3B8EDC1EBF310B000B97F9 /* test_memberlist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +359,7 @@
 				FA3B8ED01EBEF90F000B97F9 /* Request.swift in Sources */,
 				FAAC6CD21EB764B400FA4C86 /* AppDelegate.swift in Sources */,
 				FA3B8ED21EBEFA36000B97F9 /* Token.swift in Sources */,
+				FA3B8EDA1EBF2E27000B97F9 /* Member.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

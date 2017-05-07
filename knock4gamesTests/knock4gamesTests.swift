@@ -2,7 +2,7 @@
 //  knock4gamesTests.swift
 //  knock4gamesTests
 //
-//  Created by Pofat Diuit on 2017/5/1.
+//  Created by Pofat Tseng on 2017/5/1.
 //  Copyright © 2017年 Pofat. All rights reserved.
 //
 
@@ -37,6 +37,29 @@ class knock4gamesTests: XCTestCase {
             XCTAssertEqual(token!.token, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia2VuIiwiaWF0IjoxNDgyNzQ4NTQ1LCJleHAiOjE0ODI3NjY1NDV9.BxQ5Ex7hhzXTMhb3EPl-9MdjFVy1ZCKLrGb19beaFns")
         }
     }
+    
+    func testMemberListRequest() {
+        let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia2VuIiwiaWF0IjoxNDgyNzQ4NTQ1LCJleHAiOjE0ODI3NjY1NDV9.BxQ5Ex7hhzXTMhb3EPl-9MdjFVy1ZCKLrGb19beaFns"
+        
+        let memberListReq = MemberListRequest(authToken: token)
+        
+        // assert request
+        XCTAssertNotNil(memberListReq.extraHeader)
+        XCTAssertEqual(memberListReq.extraHeader!.count, 1)
+        XCTAssertEqual(memberListReq.extraHeader![0].key, "Authorization")
+        XCTAssertEqual(memberListReq.extraHeader![0].value, token)
+        
+        sender.send(arrayReq: memberListReq) { memberList in
+            
+            // assert response
+            XCTAssertNotNil(memberList)
+            XCTAssertEqual(memberList!.count, 4)
+            
+            for i in 0 ..< memberList!.count {
+                XCTAssertEqual(memberList![i].id, i + 1)
+            }
+        }
+    }
 }
 
 struct TestRequestSender: RequestSender {
@@ -57,6 +80,21 @@ struct TestRequestSender: RequestSender {
     }
     
     func send<T>(arrayReq r: T, handler: @escaping ([T.Response]?) -> Void) where T : Request {
-        // do nothing
+        switch r.path {
+        case "/member":
+            guard let fileURL = Bundle(for: knock4gamesTests.self).url(forResource: "test_memberlist", withExtension: "json") else {
+                fatalError("File not accessible")
+            }
+            guard let data = try? Data(contentsOf: fileURL) else {
+                fatalError("File read failed")
+            }
+            
+            handler(T.Response.parseArray(data: data))
+        default:
+            fatalError("Unkonw path")
+        }
+        
     }
 }
+
+
